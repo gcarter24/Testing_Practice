@@ -54,40 +54,65 @@ RSpec.describe Calculator do
       result = calculator.add(1, -3)
       expect(result).to eq(-2)
     end
-    describe "#double" do
-      it "should return the number input doubled" do
-        calc = Calculator.new
-        result = calc.double(5)
-        expect(result).to eq(10)
-      end
+  end
+  describe "#double" do
+    it "should return the number input doubled" do
+      calc = Calculator.new
+      result = calc.double(5)
+      expect(result).to eq(10)
     end
-    describe "#subtract" do
-      it "should return the difference of two numbers" do
-        calculator = Calculator.new
-        result = calculator.subtract(4, 2)
-        expect(result).to eq(2)
-      end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.double(-3)
+      expect(result).to eq(-6)
     end
-    describe "#multiply" do
-      it "should return the product of two numbers" do
-        calculator = Calculator.new
-        result = calculator.multiply(14, 2)
-        expect(result).to eq(28)
-      end
+  end
+  describe "#subtract" do
+    it "should return the difference of two numbers" do
+      calculator = Calculator.new
+      result = calculator.subtract(4, 2)
+      expect(result).to eq(2)
     end
-    describe "#divide" do
-      it "should return the quotient of two numbers" do
-        calculator = Calculator.new
-        result = calculator.divide(15, 5)
-        expect(result).to eq(3)
-      end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.subtract(8, -3)
+      expect(result).to eq(11)
     end
-    describe "#square" do
-      it "should return squared numbers" do
-        calculator = Calculator.new
-        result = calculator.square(4)
-        expect(result).to eq(16)
-      end
+  end
+  describe "#multiply" do
+    it "should return the product of two numbers" do
+      calculator = Calculator.new
+      result = calculator.multiply(14, 2)
+      expect(result).to eq(28)
+    end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.multiply(-6, 3)
+      expect(result).to eq(-18)
+    end
+  end
+  describe "#divide" do
+    it "should return the quotient of two numbers" do
+      calculator = Calculator.new
+      result = calculator.divide(15, 5)
+      expect(result).to eq(3)
+    end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.divide(-45, 3)
+      expect(result).to eq(-15)
+    end
+  end
+  describe "#square" do
+    it "should return squared numbers" do
+      calculator = Calculator.new
+      result = calculator.square(4)
+      expect(result).to eq(16)
+    end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.square(-9)
+      expect(result).to eq(81)
     end
   end
 end
