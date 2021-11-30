@@ -1,4 +1,4 @@
-"require rspec"
+require "rspec"
 
 class Calculator
   def double(num)
@@ -54,6 +54,11 @@ RSpec.describe Calculator do
       result = calculator.add(1, -3)
       expect(result).to eq(-2)
     end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.add(1.5, -3)
+      expect(result).to eq(-1.5)
+    end
   end
   describe "#double" do
     it "should return the number input doubled" do
@@ -65,6 +70,11 @@ RSpec.describe Calculator do
       calculator = Calculator.new
       result = calculator.double(-3)
       expect(result).to eq(-6)
+    end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.double(-3.2)
+      expect(result).to eq(-6.4)
     end
   end
   describe "#subtract" do
@@ -78,6 +88,11 @@ RSpec.describe Calculator do
       result = calculator.subtract(8, -3)
       expect(result).to eq(11)
     end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.subtract(9.6, 7.3)
+      expect(result).to eq(2.3)
+    end
   end
   describe "#multiply" do
     it "should return the product of two numbers" do
@@ -89,6 +104,11 @@ RSpec.describe Calculator do
       calculator = Calculator.new
       result = calculator.multiply(-6, 3)
       expect(result).to eq(-18)
+    end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.multiply(5.25, 7)
+      expect(result).to eq(36.75)
     end
   end
   describe "#divide" do
@@ -102,6 +122,11 @@ RSpec.describe Calculator do
       result = calculator.divide(-45, 3)
       expect(result).to eq(-15)
     end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.divide(25, 12.5)
+      expect(result).to eq(2)
+    end
   end
   describe "#square" do
     it "should return squared numbers" do
@@ -113,6 +138,11 @@ RSpec.describe Calculator do
       calculator = Calculator.new
       result = calculator.square(-9)
       expect(result).to eq(81)
+    end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.square(4.25)
+      expect(result).to eq(18.0625)
     end
   end
 end
