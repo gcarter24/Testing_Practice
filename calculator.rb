@@ -62,8 +62,8 @@ RSpec.describe Calculator do
   end
   describe "#double" do
     it "should return the number input doubled" do
-      calc = Calculator.new
-      result = calc.double(5)
+      calculator = Calculator.new
+      result = calculator.double(5)
       expect(result).to eq(10)
     end
     it "should work with negative numbers" do
