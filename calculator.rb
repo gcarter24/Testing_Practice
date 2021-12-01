@@ -28,6 +28,10 @@ class Calculator
   def square(num)
     return num * num
   end
+
+  def triple(num)
+    return num * num * num
+  end
 end
 
 # Driver Code
@@ -143,6 +147,23 @@ RSpec.describe Calculator do
       calculator = Calculator.new
       result = calculator.square(4.25)
       expect(result).to eq(18.0625)
+    end
+  end
+  describe "#triple" do
+    it "should return number tripled" do
+      calculator = Calculator.new
+      result = calculator.triple(2)
+      expect(result).to eq(8)
+    end
+    it "should work with negative numbers" do
+      calculator = Calculator.new
+      result = calculator.triple(-3)
+      expect(result).to eq(-27)
+    end
+    it "should work with decimals" do
+      calculator = Calculator.new
+      result = calculator.triple(2.2)
+      expect(result).to eq(10.648000000000003)
     end
   end
 end
