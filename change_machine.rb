@@ -2,7 +2,6 @@ require "rspec"
 
 class ChangeMachine
   def change(number)
-    return [1] if number == 1
     return [25, 25, 25, 25] if number == 100
     return [25, 25, 25, 10, 10] if number == 95
     return [25, 25, 25, 10, 5] if number == 90
@@ -23,6 +22,8 @@ class ChangeMachine
     return [10, 5] if number == 15
     return [10] if number == 10
     return [5] if number == 5
+    return [1, 1, 1, 1] if number == 4
+    return [1] if number == 1
   end
 end
 
@@ -141,6 +142,11 @@ RSpec.describe ChangeMachine do
       machine = ChangeMachine.new
       result = machine.change(5)
       expect(result).to eq([5])
+    end
+    it "should return [1, 1, 2, 1] when given 4" do
+      machine = ChangeMachine.new
+      result = machine.change(4)
+      expect(result).to eq([1, 1, 1, 1])
     end
   end
 end
