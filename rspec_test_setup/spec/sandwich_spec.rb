@@ -15,4 +15,19 @@ describe Sandwich do
       expect(sandwich.condiments).to_not include("mayo")
     end
   end
+  context "when the sandwich shouldn't be vegan" do
+    it "should have meat" do
+      sandwich = Sandwich.new(true, true, ["lettuce", "tomato", "mayo"])
+      expect(sandwich.meat).to eq(true)
+    end
+
+    it "should have cheese" do
+      sandwich = Sandwich.new(true, true, ["lettuce", "tomato", "mayo"])
+      expect(sandwich.cheese).to eq(true)
+    end
+    it "should have mayo" do
+      sandwich = Sandwich.new(true, true, ["lettuce", "tomato", "mayo"])
+      expect(sandwich.condiments).to include("mayo")
+    end
+  end
 end
